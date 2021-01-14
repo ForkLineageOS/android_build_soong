@@ -1396,7 +1396,7 @@ func TestQTargetApexUsesStaticUnwinder(t *testing.T) {
 	ensureListContains(t, cm.Properties.AndroidMkStaticLibs, "libgcc_stripped")
 	// note that platform variant is not.
 	cm = ctx.ModuleForTests("libc++", "android_arm64_armv8-a_shared").Module().(*cc.Module)
-	ensureListNotContains(t, cm.Properties.AndroidMkStaticLibs, "libgcc_stripped")
+	ensureListNotContains(t, cm.Properties.AndroidMkStaticLibs, "libunwind")
 }
 
 func TestInvalidMinSdkVersion(t *testing.T) {
